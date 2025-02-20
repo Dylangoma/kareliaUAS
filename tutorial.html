@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tutorial</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #85E294, #00653A);
+      color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4D4D4D; /* Dark grey */
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #969696; /* Mid grey on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tutorial</h1>
+    <p>Learn how to play and earn your first patch!</p>
+    <button onclick="completeTutorial()">Mission Complete</button>
+  </div>
+
+  <script>
+    function completeTutorial() {
+      // Mark tutorial as completed
+      localStorage.setItem('tutorialCompleted', 'true');
+      // Redirect to reward page
+      window.location.href = 'reward.html?mission=tutorial';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mission 2</title>
+  <style>
+    /* Exemple de style minimal, identique à mission1.html */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #48c6ef, #6f86d6); /* Ajustez vos couleurs */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4D4D4D;
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #969696;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mission 2: Discover Joensuu</h1>
+    <p>Visit important places in Joensuu and collect information.</p>
+    <button onclick="completeMission2()">Mission complete</button>
+  </div>
+
+  <script>
+    function completeMission2() {
+      // Marquer la mission 2 comme terminée
+      localStorage.setItem('mission2Completed', 'true');
+      // Rediriger vers la page de récompense
+      window.location.href = 'reward.html?mission=2';
+    }
+  </script>
+</body>
+</html>

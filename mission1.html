@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mission 1</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #85E294, #00653A);
+      color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4D4D4D;
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #969696;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mission 1: Explore Karelia UAS</h1>
+    <p>Find your way around the university! Look for key locations.</p>
+    <button onclick="completeMission1()">Mission Complete</button>
+  </div>
+
+  <script>
+    function completeMission1() {
+      localStorage.setItem('mission1Completed', 'true');
+      // Go to reward page with mission=1
+      window.location.href = 'reward.html?mission=1';
+    }
+  </script>
+</body>
+</html>

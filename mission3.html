@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mission 3</title>
+  <style>
+    /* Même style de base que mission1 et mission2 */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #48c6ef, #6f86d6);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4D4D4D;
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #969696;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mission 3: Join the Student Community</h1>
+    <p>Engage with students, participate in an event, and share your experience.</p>
+    <button onclick="completeMission3()">Mission complete</button>
+  </div>
+
+  <script>
+    function completeMission3() {
+      // Marquer la mission 3 comme terminée
+      localStorage.setItem('mission3Completed', 'true');
+      // Rediriger vers la page de récompense
+      window.location.href = 'reward.html?mission=3';
+    }
+  </script>
+</body>
+</html>
