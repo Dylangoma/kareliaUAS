@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tutorial</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #85E294, #00653A);
+      color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ffcc00;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out, transform 0.2s;
+    }
+    button:hover {
+      background-color: #e0b700;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tutorial</h1>
+    <p>Learn how to play and earn your first patch!</p>
+    <button onclick="completeTutorial()">Mission Complete</button>
+  </div>
+
+  <script>
+    function completeTutorial() {
+        try {
+            // Vérifier si le tutoriel est déjà complété
+            if (localStorage.getItem('tutorialCompleted') === 'true') {
+                console.log("Tutorial already completed!");
+                return;
+            }
+
+            localStorage.setItem('tutorialCompleted', 'true'); // ✅ Sauvegarde
+
+            // Ajouter le tutoriel aux patchs gagnés
+            let earnedPatches = JSON.parse(localStorage.getItem('earnedPatches')) || [];
+            if (!earnedPatches.includes("tutorial")) {
+                earnedPatches.push("tutorial");
+                localStorage.setItem('earnedPatches', JSON.stringify(earnedPatches));
+            }
+
+            console.log("Tutorial completed! Redirecting to reward page...");
+            window.location.href = 'reward.html?mission=tutorial';
+
+        } catch (error) {
+            console.error("Error saving tutorial progress:", error);
+            alert("There was an error saving your progress. Please try again.");
+        }
+    }
+  </script>
+</body>
+</html>

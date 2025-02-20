@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mission 1</title>
+  <title>Mission 1 - OpasSusi Run</title>
   <style>
     html, body {
       margin: 0;
@@ -25,27 +25,38 @@
       font-size: 16px;
       border: none;
       border-radius: 5px;
-      background-color: #4D4D4D;
-      color: #FFFFFF;
+      background-color: #ffcc00;
+      color: black;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
+      margin: 10px;
     }
     button:hover {
-      background-color: #969696;
+      background-color: #e0b700;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Mission 1: Explore Karelia UAS</h1>
-    <p>Find your way around the university! Look for key locations.</p>
-    <button onclick="completeMission1()">Mission Complete</button>
+    <h1>Mission 1: OpasSusi Run</h1>
+    <p>Help OpasSusi navigate Joensuu and complete the challenge!</p>
+    
+    <!-- Bouton pour ouvrir la mission dans un nouvel onglet -->
+    <button onclick="startMission()">Start Mission</button>
+
+    <!-- Bouton pour revenir au menu -->
+    <button onclick="backToMenu()">Back to Menu</button>
   </div>
 
   <script>
-    function completeMission1() {
-      localStorage.setItem('mission1Completed', 'true');
-      window.location.href = 'reward.html?mission=1';
+    function startMission() {
+      window.open("https://dashuri69.github.io/joensuu/", "_blank"); // Ouvre dans un nouvel onglet
+    }
+
+    function backToMenu() {
+      window.location.href = "patches.html"; // Retour au menu des missions
     }
   </script>
 </body>
