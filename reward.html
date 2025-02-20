@@ -25,7 +25,7 @@
       font-size: 16px;
       border: none;
       border-radius: 5px;
-      background-color: #4D4D4D; 
+      background-color: #4D4D4D;
       color: #FFFFFF;
       cursor: pointer;
       transition: background-color 0.3s;
@@ -43,7 +43,6 @@
   </div>
 
   <script>
-    // Get mission param from URL: e.g. ?mission=tutorial or ?mission=1
     const params = new URLSearchParams(window.location.search);
     const mission = params.get('mission');
 
@@ -56,8 +55,10 @@
     } else if (mission === '2') {
       document.getElementById('title').textContent = "Mission 2 Accomplished!";
       document.getElementById('message').textContent = "You're on your way to the next patch!";
+    } else if (mission === '3') {
+      document.getElementById('title').textContent = "Mission 3 Accomplished!";
+      document.getElementById('message').textContent = "You earned a new patch!";
     }
-    // ...and so on for mission 3, etc.
 
     function backToPatches() {
       window.location.href = 'patches.html';

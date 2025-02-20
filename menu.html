@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Karelia</title>
+    <link rel="stylesheet" type="text/css" href="welcomestyle.css">
+    <script src="scripts.js" defer></script>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <!-- Écran de bienvenue, se cache quand on clique -->
+    <div class="welcome-text" id="landing" onclick="welcomeToMain()">
+        <h1>Welcome Guest! <br>You can now fin(d) your way!</h1>
+        <h3>Click to continue!</h3>
+    </div>
+    
+    <!-- Contenu du menu (après avoir cliqué) -->
+    <div id="bearDiv">
+        <p id="instructions">Click on an unlocked patch to start your journey!</p>
+        <img src="images/bear.png" alt="cartoon bear" class="bear">
+
+        <!-- Bouton pour accéder aux missions -->
+        <button onclick="location.href='patches.html'">Go to Missions</button>
+    </div>
+</body>
+</html>

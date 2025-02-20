@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Patch Your Overalls</title>
-  <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
@@ -14,7 +13,6 @@
       font-family: Arial, sans-serif;
     }
     body {
-      /* Same green gradient background */
       background: linear-gradient(to right, #85E294, #00653A);
       color: #FFFFFF;
       display: flex;
@@ -34,15 +32,15 @@
     }
     .patch-grid {
       display: grid;
-      grid-template-columns: repeat(2, 150px); /* 2 columns of 150px */
+      grid-template-columns: repeat(2, 150px);
       gap: 20px;
       justify-content: center;
     }
     .patch-btn {
       width: 150px;
       height: 150px;
-      background-color: #FFFFFF; /* White patch button */
-      color: #00653A;           /* Dark green text */
+      background-color: #FFFFFF;
+      color: #00653A;
       border: none;
       border-radius: 10px;
       font-size: 14px;
@@ -55,8 +53,8 @@
       align-items: center;
     }
     .patch-btn.locked {
-      background-color: #969696; /* Mid grey if locked */
-      color: #4D4D4D;           /* Dark grey text if locked */
+      background-color: #969696;
+      color: #4D4D4D;
       cursor: not-allowed;
     }
     .patch-btn:hover:not(.locked) {
@@ -105,22 +103,16 @@
   </div>
 
   <script>
-    // Check localStorage for completion flags
     const tutorialCompleted = localStorage.getItem('tutorialCompleted');
     const mission1Completed = localStorage.getItem('mission1Completed');
     const mission2Completed = localStorage.getItem('mission2Completed');
 
-    // Unlock Mission 1 if tutorial is completed
     if (tutorialCompleted === 'true') {
       unlockMission('mission1');
     }
-
-    // Unlock Mission 2 if Mission 1 is completed
     if (mission1Completed === 'true') {
       unlockMission('mission2');
     }
-
-    // Unlock Mission 3 if Mission 2 is completed
     if (mission2Completed === 'true') {
       unlockMission('mission3');
     }
@@ -130,7 +122,6 @@
       if (btn) {
         btn.classList.remove('locked');
         btn.disabled = false;
-        // Change lock icon to check icon
         const icon = btn.querySelector('i');
         icon.classList.remove('fa-lock');
         icon.classList.add('fa-check');

@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <title>Mission 2</title>
   <style>
-    /* Exemple de style minimal, identique à mission1.html */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #48c6ef, #6f86d6); /* Ajustez vos couleurs */
+      background: linear-gradient(to right, #48c6ef, #6f86d6);
       color: #fff;
       display: flex;
       justify-content: center;
@@ -40,14 +39,12 @@
   <div class="container">
     <h1>Mission 2: Discover Joensuu</h1>
     <p>Visit important places in Joensuu and collect information.</p>
-    <button onclick="completeMission2()">Mission complete</button>
+    <button onclick="completeMission2()">Mission Complete</button>
   </div>
 
   <script>
     function completeMission2() {
-      // Marquer la mission 2 comme terminée
       localStorage.setItem('mission2Completed', 'true');
-      // Rediriger vers la page de récompense
       window.location.href = 'reward.html?mission=2';
     }
   </script>

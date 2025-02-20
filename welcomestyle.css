@@ -1,0 +1,105 @@
+:root {
+    --darkgreen: #006B38;
+    --lightgreen: #67C04D;
+    --white: #fffefc;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightgreen);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Titres */
+h1 {
+    font-size: 4em;
+    color: var(--darkgreen);
+}
+h3 {
+    font-size: 3em;
+    color: var(--darkgreen);
+}
+
+/* Ecran d'accueil et login */
+.welcome-text {
+    outline: 5px solid black;
+    height: 100%;
+    border-radius: 5px;
+    margin: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: var(--lightgreen);
+    z-index: 5;
+}
+.welcome-text h1 {
+    font-size: 2em;
+}
+.welcome-text h3 {
+    font-size: 1.5em;
+}
+
+.login-form {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.login-form input {
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--darkgreen);
+}
+.login-form p {
+    margin: 5px;
+}
+#loginButton {
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+
+/* Menu bear image */
+.bear {
+    position: relative;
+    z-index: 4;
+    transform: translateX(-200px);
+    align-items: center;
+}
+#instructions {
+    position: relative;
+    top: 20px;
+    padding: 20px;
+    width: 50%;
+    background: var(--darkgreen);
+    color: var(--white);
+    border-radius: 20px;
+    z-index: 2;
+}
+
+/* Animation slide down */
+@keyframes slideDown {
+    0% {
+        height: 30%;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 100%;
+        filter: brightness(60%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}

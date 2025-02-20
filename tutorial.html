@@ -25,13 +25,13 @@
       font-size: 16px;
       border: none;
       border-radius: 5px;
-      background-color: #4D4D4D; /* Dark grey */
+      background-color: #4D4D4D;
       color: #FFFFFF;
       cursor: pointer;
       transition: background-color 0.3s;
     }
     button:hover {
-      background-color: #969696; /* Mid grey on hover */
+      background-color: #969696;
     }
   </style>
 </head>
@@ -44,9 +44,7 @@
 
   <script>
     function completeTutorial() {
-      // Mark tutorial as completed
       localStorage.setItem('tutorialCompleted', 'true');
-      // Redirect to reward page
       window.location.href = 'reward.html?mission=tutorial';
     }
   </script>

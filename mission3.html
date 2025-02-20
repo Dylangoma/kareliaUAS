@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Mission 3</title>
   <style>
-    /* Même style de base que mission1 et mission2 */
     html, body {
       margin: 0;
       padding: 0;
@@ -40,14 +39,12 @@
   <div class="container">
     <h1>Mission 3: Join the Student Community</h1>
     <p>Engage with students, participate in an event, and share your experience.</p>
-    <button onclick="completeMission3()">Mission complete</button>
+    <button onclick="completeMission3()">Mission Complete</button>
   </div>
 
   <script>
     function completeMission3() {
-      // Marquer la mission 3 comme terminée
       localStorage.setItem('mission3Completed', 'true');
-      // Rediriger vers la page de récompense
       window.location.href = 'reward.html?mission=3';
     }
   </script>

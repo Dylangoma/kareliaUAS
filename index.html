@@ -1,74 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to Karelia UAS</title>
-  <style>
-    /* Reset and base styling */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      /* Background gradient: light green (#85E294) to dark green (#00653A) */
-      background: linear-gradient(to right, #85E294, #00653A);
-      color: #FFFFFF;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 20px;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-    p {
-      margin-bottom: 30px;
-    }
-    button {
-      padding: 15px 30px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #4D4D4D; /* Dark grey */
-      color: #FFFFFF;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #969696; /* Mid grey on hover */
-    }
-
-    /* Center the image and adjust its size */
-    .img-wrapper {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .img-wrapper img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover; /* ou 'contain' si vous préférez */
-      border-radius: 5px; /* optionnel, pour des coins légèrement arrondis */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Welcome to Karelia</title>
+    <link rel="stylesheet" type="text/css" href="welcomestyle.css">
+    <script src="scripts.js" defer></script>
+    <meta name="viewport" content="width=device-width" />
 </head>
 <body>
-  <div class="container">
-    <!-- Image (bear.jpg) -->
-    <div class="img-wrapper">
-      <img src="bear.jpg" alt="Bear Image">
+    <div class="welcome-text" id="landing" onclick="welcomeToLogin()">
+        <h1>Welcome to the Karelia UAS immersive onboarding experience!</h1>
+        <h3>Click to continue!</h3>
     </div>
-
-    <h1>Welcome to Karelia UAS - Joensuu</h1>
-    <p>Click to start your adventure...</p>
-    <button onclick="location.href='patches.html'">Start</button>
-  </div>
+    <div class="login-form" id="login">
+        <h1>Log in:</h1>
+        <input type="text" id="username" placeholder="Username" onkeydown="loginWithEnter(event)">
+        <input type="password" id="password" placeholder="Password" onkeydown="loginWithEnter(event)">
+        <button id="loginButton" onclick="login()">Log in</button>
+        <p>Forgot your password?</p>
+        <p>Log in without Karelia account.</p>
+    </div>
 </body>
 </html>
