@@ -3,72 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Patch Your Overalls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      background: linear-gradient(to right, #85E294, #00653A);
-      color: #FFFFFF;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 20px;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    p {
-      margin-bottom: 30px;
-    }
-    .patch-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 150px);
-      gap: 20px;
-      justify-content: center;
-    }
-    .patch-btn {
-      width: 150px;
-      height: 150px;
-      background-color: #FFFFFF;
-      color: #00653A;
-      border: none;
-      border-radius: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.3s, background-color 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .patch-btn.locked {
-      background-color: #969696;
-      color: #4D4D4D;
-      cursor: not-allowed;
-    }
-    .patch-btn:hover:not(.locked) {
-      transform: scale(1.05);
-    }
-    .patch-btn i {
-      font-size: 40px;
-      margin-bottom: 8px;
-    }
-    .patch-btn .label {
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-  </style>
+  <link rel="stylesheet" href="welcomestyle.css"> 
+  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <div class="container">
@@ -77,55 +14,92 @@
     
     <div class="patch-grid">
       <!-- Tutorial (always unlocked) -->
-      <button class="patch-btn" onclick="location.href='tutorial.html'">
+      <button class="patch-btn unlocked" onclick="startMission('tutorial')">
         <i class="fa-solid fa-book-open"></i>
         <span class="label">Tutorial</span>
       </button>
 
-      <!-- Mission 1 (locked by default) -->
-      <button class="patch-btn locked" id="mission1" onclick="location.href='mission1.html'" disabled>
+      <!-- Mission 1: OpasSusi Run -->
+      <button class="patch-btn locked" id="mission1" onclick="startMission('1')" disabled>
         <i class="fa-solid fa-lock"></i>
-        <span class="label">Mission 1</span>
+        <span class="label">OpasSusi</span>
       </button>
 
-      <!-- Mission 2 (locked by default) -->
-      <button class="patch-btn locked" id="mission2" onclick="location.href='mission2.html'" disabled>
+      <!-- Mission 2 -->
+      <button class="patch-btn locked" id="mission2" onclick="startMission('2')" disabled>
         <i class="fa-solid fa-lock"></i>
         <span class="label">Mission 2</span>
       </button>
 
-      <!-- Mission 3 (locked by default) -->
-      <button class="patch-btn locked" id="mission3" onclick="location.href='mission3.html'" disabled>
+      <!-- Mission 3 -->
+      <button class="patch-btn locked" id="mission3" onclick="startMission('3')" disabled>
         <i class="fa-solid fa-lock"></i>
         <span class="label">Mission 3</span>
       </button>
     </div>
+
+    <!-- Button to view earned patches -->
+    <button class="gallery-btn" onclick="goToGallery()">View Patch Gallery</button>
   </div>
 
   <script>
-    const tutorialCompleted = localStorage.getItem('tutorialCompleted');
-    const mission1Completed = localStorage.getItem('mission1Completed');
-    const mission2Completed = localStorage.getItem('mission2Completed');
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Patches page loaded!"); // Debug
 
-    if (tutorialCompleted === 'true') {
-      unlockMission('mission1');
-    }
-    if (mission1Completed === 'true') {
-      unlockMission('mission2');
-    }
-    if (mission2Completed === 'true') {
-      unlockMission('mission3');
+        let earnedPatches = JSON.parse(localStorage.getItem('earnedPatches')) || [];
+
+        // Vérifier si le tutoriel a été complété et débloquer la mission 1
+        if (earnedPatches.includes("tutorial")) {
+            unlockMission("mission1");
+        }
+        if (earnedPatches.includes("1")) {
+            unlockMission("mission2");
+        }
+        if (earnedPatches.includes("2")) {
+            unlockMission("mission3");
+        }
+
+        function unlockMission(missionId) {
+            let btn = document.getElementById(missionId);
+            if (btn) {
+                btn.classList.remove("locked");
+                btn.classList.add("unlocked-new");
+                btn.disabled = false;
+                let icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove("fa-lock");
+                    icon.classList.add("fa-check");
+                }
+            }
+        }
+    });
+
+    function startMission(mission) {
+        let earnedPatches = JSON.parse(localStorage.getItem('earnedPatches')) || [];
+
+        if (mission === "tutorial") {
+            window.location.href = "tutorial.html"; // ✅ Correction ici
+        } else if (mission === "1") {
+            localStorage.setItem('mission1Completed', 'true'); // ✅ Sauvegarde de progression
+            if (!earnedPatches.includes("1")) {
+                earnedPatches.push("1");
+                localStorage.setItem('earnedPatches', JSON.stringify(earnedPatches));
+            }
+            window.open("https://dashuri69.github.io/joensuu/", "_blank"); // Mission 1: OpasSusi Run
+        } else if (earnedPatches.includes((parseInt(mission) - 1).toString())) {
+            localStorage.setItem(`mission${mission}Completed`, "true");
+            if (!earnedPatches.includes(mission)) {
+                earnedPatches.push(mission);
+                localStorage.setItem('earnedPatches', JSON.stringify(earnedPatches));
+            }
+            window.location.href = `mission${mission}.html`;
+        } else {
+            alert("You need to complete previous missions first!");
+        }
     }
 
-    function unlockMission(missionId) {
-      const btn = document.getElementById(missionId);
-      if (btn) {
-        btn.classList.remove('locked');
-        btn.disabled = false;
-        const icon = btn.querySelector('i');
-        icon.classList.remove('fa-lock');
-        icon.classList.add('fa-check');
-      }
+    function goToGallery() {
+        window.location.href = "gallery.html";
     }
   </script>
 </body>

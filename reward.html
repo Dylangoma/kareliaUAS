@@ -3,65 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Reward</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #85E294, #00653A);
-      color: #FFFFFF;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 20px;
-    }
-    button {
-      padding: 15px 30px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #4D4D4D;
-      color: #FFFFFF;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #969696;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1 id="title">Mission Accomplished!</h1>
-    <p id="message">You earned a new patch!</p>
-    <button onclick="backToPatches()">Return</button>
+  <div class="reward-container">
+    <h1 id="reward-title">Mission Accomplished!</h1>
+    <p id="reward-message">You earned a new patch!</p>
+    
+    <!-- Patch Image -->
+    <div class="patch-display">
+      <img id="patch-image" src="images/default-patch.png" alt="New Patch Earned" class="patch-image">
+    </div>
+
+    <button onclick="backToPatches()">Return to Menu</button>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const mission = params.get('mission');
+    document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const mission = params.get('mission');
+        
+        if (mission) {
+            let earnedPatches = JSON.parse(localStorage.getItem('earnedPatches')) || [];
+            
+            // Ajouter la mission si elle n'a pas encore été enregistrée
+            if (!earnedPatches.includes(mission)) {
+                earnedPatches.push(mission);
+                localStorage.setItem('earnedPatches', JSON.stringify(earnedPatches));
+            }
 
-    if (mission === 'tutorial') {
-      document.getElementById('title').textContent = "Tutorial Completed!";
-      document.getElementById('message').textContent = "Congratulations! You unlocked Mission 1.";
-    } else if (mission === '1') {
-      document.getElementById('title').textContent = "Mission 1 Accomplished!";
-      document.getElementById('message').textContent = "You earned a new patch!";
-    } else if (mission === '2') {
-      document.getElementById('title').textContent = "Mission 2 Accomplished!";
-      document.getElementById('message').textContent = "You're on your way to the next patch!";
-    } else if (mission === '3') {
-      document.getElementById('title').textContent = "Mission 3 Accomplished!";
-      document.getElementById('message').textContent = "You earned a new patch!";
+            // Mettre à jour l'interface utilisateur
+            updateRewardScreen(mission);
+        }
+
+        // Redirection après 3 secondes
+        setTimeout(() => {
+            backToPatches();
+        }, 3000);
+    });
+
+    function updateRewardScreen(mission) {
+        let title = document.getElementById('reward-title');
+        let message = document.getElementById('reward-message');
+        let patchImage = document.getElementById('patch-image');
+
+        switch (mission) {
+            case 'tutorial':
+                title.textContent = "Tutorial Completed!";
+                message.textContent = "Congratulations! You unlocked Mission 1.";
+                patchImage.src = "images/patch-tutorial.png";
+                break;
+            case '1':
+                title.textContent = "Mission 1 Accomplished!";
+                message.textContent = "You've earned a new patch!";
+                patchImage.src = "images/patch1.png";
+                break;
+            case '2':
+                title.textContent = "Mission 2 Accomplished!";
+                message.textContent = "Another mission completed, great job!";
+                patchImage.src = "images/patch2.png";
+                break;
+            case '3':
+                title.textContent = "Mission 3 Accomplished!";
+                message.textContent = "You've collected all patches!";
+                patchImage.src = "images/patch3.png";
+                break;
+            default:
+                title.textContent = "Congratulations!";
+                message.textContent = "You've earned a new patch!";
+        }
     }
 
     function backToPatches() {
-      window.location.href = 'patches.html';
+        window.location.href = 'patches.html';
+        setTimeout(() => {
+            location.reload(); // ✅ Forcer le rechargement
+        }, 100);
     }
   </script>
 </body>
