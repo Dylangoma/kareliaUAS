@@ -61,7 +61,7 @@ function startMission(mission) {
     let earnedPatches = JSON.parse(localStorage.getItem("earnedPatches")) || [];
     let missionNumber = parseInt(mission);
 
-    if (mission === "tutorial" || earnedPatches.includes(mission) || earnedPatches.includes((missionNumber - 1).toString())) {
+    if (mission === "tutorial" || (mission == "1" && earnedPatches.includes("tutorial")) || earnedPatches.includes(mission) || earnedPatches.includes((missionNumber - 1).toString())) {
         window.location.href = `mission${mission}.html`;
     } else {
         alert("You need to complete previous missions first!");

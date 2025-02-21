@@ -13,7 +13,7 @@
     
     <!-- Patch Image -->
     <div class="patch-display">
-      <img id="patch-image" src="images/default-patch.png" alt="New Patch Earned" class="patch-image">
+      <img id="patch-image" src="images/patches/team1.png" alt="New Patch Earned" class="patch-image">
     </div>
 
     <button onclick="backToPatches()">Return to Menu</button>
@@ -52,22 +52,22 @@
             case 'tutorial':
                 title.textContent = "Tutorial Completed!";
                 message.textContent = "Congratulations! You unlocked Mission 1.";
-                patchImage.src = "images/patch-tutorial.png";
+                patchImage.src = "images/patches/team1.png";
                 break;
             case '1':
                 title.textContent = "Mission 1 Accomplished!";
                 message.textContent = "You've earned a new patch!";
-                patchImage.src = "images/patch1.png";
+                patchImage.src = "images/patches/team2.png";
                 break;
             case '2':
                 title.textContent = "Mission 2 Accomplished!";
                 message.textContent = "Another mission completed, great job!";
-                patchImage.src = "images/patch2.png";
+                patchImage.src = "images/patches/team3.png";
                 break;
             case '3':
                 title.textContent = "Mission 3 Accomplished!";
                 message.textContent = "You've collected all patches!";
-                patchImage.src = "images/patch3.png";
+                patchImage.src = "images/patches/team5.png";
                 break;
             default:
                 title.textContent = "Congratulations!";

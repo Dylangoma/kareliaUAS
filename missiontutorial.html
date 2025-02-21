@@ -50,7 +50,7 @@
             // Vérifier si le tutoriel est déjà complété
             if (localStorage.getItem('tutorialCompleted') === 'true') {
                 console.log("Tutorial already completed!");
-                return;
+                window.location.href = 'patches.html';
             }
 
             localStorage.setItem('tutorialCompleted', 'true'); // ✅ Sauvegarde
