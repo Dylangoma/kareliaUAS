@@ -8,19 +8,21 @@
     <meta name="viewport" content="width=device-width" />
 </head>
 <body>
-    <!-- Écran de bienvenue, se cache quand on clique -->
+    <!-- Text welcoming the user -->
     <div class="welcome-text" id="landing" onclick="welcomeToMain()">
         <h1>Welcome Guest! <br>You can now fin(d) your way!</h1>
-        <h3>Click to continue!</h3>
+        <h3>Click or tap to continue!</h3>
     </div>
     
-    <!-- Contenu du menu (après avoir cliqué) -->
-    <div id="bearDiv">
-        <p id="instructions">Click on an unlocked patch to start your journey!</p>
-        <img src="images/bear.png" alt="cartoon bear" class="bear">
+    <!-- Guide bear Herbert-->
+    <div id="bearPatchDiv">
+        <div id="bearDiv">
+            <p id="instructions">Click on an unlocked patch to start your journey!</p>
+            <img src="images/bear.png" alt="cartoon bear" class="bear">
 
-        <!-- Bouton pour accéder aux missions -->
-        <button onclick="location.href='patches.html'">Go to Missions</button>
+            <!-- Patch button to access main menu -->
+        </div>
+        <img src="images/patches/team1.png" alt="Patch your overAlls patch" class="entryPatch" onclick="location.href=`patches.html`">
     </div>
 </body>
 </html>

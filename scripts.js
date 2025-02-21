@@ -2,9 +2,6 @@ function welcomeToLogin() {
     var welcomeText = document.querySelector(".welcome-text");
     var loginForm = document.querySelector(".login-form");
     welcomeText.style.animation = "slideDown 1s forwards";
-    setTimeout(() => {
-        welcomeText.style.display = "none";
-    }, 1000);
     loginForm.style.display = "flex";
 }
 
@@ -26,5 +23,7 @@ function loginWithEnter(event) {
 
 function welcomeToMain() {
     var welcomeText = document.querySelector(".welcome-text");
-    welcomeText.style.display = "none";
+    var bear = document.querySelector("#bearPatchDiv")
+    welcomeText.style.animation = "slideDown 1s forwards";
+    bear.style.animation = "phaseIn 1s forwards";
 }

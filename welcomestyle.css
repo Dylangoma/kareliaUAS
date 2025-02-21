@@ -2,6 +2,9 @@
     --darkgreen: #006B38;
     --lightgreen: #67C04D;
     --white: #fffefc;
+    --lightgrey: #d9d9d9;
+    --midgrey: #a6a6a6;
+    --darkgrey: #545454;
 }
 
 body, html {
@@ -14,7 +17,7 @@ body, html {
     font-family: 'Arial', sans-serif;
 }
 
-/* Titres */
+/* Headers */
 h1 {
     font-size: 4em;
     color: var(--darkgreen);
@@ -24,9 +27,8 @@ h3 {
     color: var(--darkgreen);
 }
 
-/* Ecran d'accueil et login */
+/* Login page with welcome text */
 .welcome-text {
-    outline: 5px solid black;
     height: 100%;
     border-radius: 5px;
     margin: 0;
@@ -37,7 +39,7 @@ h3 {
     text-align: center;
     flex-direction: column;
     background-color: var(--lightgreen);
-    z-index: 5;
+    z-index: 99;
 }
 .welcome-text h1 {
     font-size: 2em;
@@ -71,12 +73,11 @@ h3 {
     margin-top: 2%;
 }
 
-/* Menu bear image */
+/* Menu bear image and text with container */
 .bear {
-    position: relative;
+    position: absolute;
     z-index: 4;
-    transform: translateX(-200px);
-    align-items: center;
+    transform: translateX(-150px);
 }
 #instructions {
     position: relative;
@@ -87,6 +88,28 @@ h3 {
     color: var(--white);
     border-radius: 20px;
     z-index: 2;
+}
+.entryPatch {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    top: 45vh;
+    left: 30vw;
+    z-index: 7;
+    border-radius: 55px;
+}
+.entryPatch:hover {
+    cursor: pointer;
+    background: var(--lightgrey);
+}
+#bearDiv {
+    padding-bottom: 50vh;
+    position: relative;
+    opacity: 1;
+}
+#bearPatchDiv {
+    opacity: 0;
+    position: relative;
 }
 
 /* Animation slide down */
@@ -101,5 +124,16 @@ h3 {
     }
     100% {
         transform: translateY(200%);
+        display: none;
+    }
+}
+/* Animation Phase in */
+@keyframes phaseIn {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
     }
 }
